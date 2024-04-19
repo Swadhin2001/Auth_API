@@ -8,7 +8,7 @@ import randomstring from 'randomstring'
 import 'dotenv/config'
 const router = express.Router();
 
-
+router.use (bodyParser.urlencoded({ extended: true }));
 router.use (bodyParser.json());
 
 
@@ -39,7 +39,6 @@ router.get('/user', verifyToken, async (req:CustomRequest, res) => {
         res.status(201).json({
             email: user.email,
             location: user.location,
-            age: user.age,
             work_details: user.work_details
         });
         console.log ("User data fetched")
@@ -129,7 +128,7 @@ router.post ('/verify',async (req,res)=>{
 //User Extra Info adding 
 router.post('/info', async (req, res) => {
     try {
-        const {email,location, age, work_details } = req.body;
+        const {email,location,work_details } = req.body;
         const user = await User.findOne({ email });
         if (!user) return res.status(400).send('User not found');
 
@@ -137,7 +136,6 @@ router.post('/info', async (req, res) => {
             return res.send ("User is not verified");
         }
         user.location = location;
-        user.age = age;
         user.work_details = work_details;
         await user.save();
         res.status(200).send('User details added successfully');
