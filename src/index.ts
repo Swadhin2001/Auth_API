@@ -13,10 +13,10 @@ app.use (bodyParser.json());
 
 
 app.use ('/', router);
+app.use ('/user', router);
 app.use ('/login', router);
-app.get ('/', (req, res)=>{
-    res.send ("Hello World Express");
-})
+app.use ('/verify', router);
+app.use ('/info', router);
 
 
 app.listen (port, ()=>{
