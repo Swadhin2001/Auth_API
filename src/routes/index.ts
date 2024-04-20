@@ -14,7 +14,7 @@ router.use (bodyParser.json());
 
 const otp = randomstring.generate({
     length: 6,
-    charset: 'number'
+    charset: 'string'
 });
 
 interface CustomRequest extends Request {
