@@ -2,14 +2,13 @@ import express, { NextFunction, Request, Response} from 'express';
 import { User } from '../schema/user.model';
 import bcrypt from 'bcrypt'
 import jwt,{Secret} from 'jsonwebtoken'
-import bodyParser from 'body-parser';
 import { sendOTP } from '../utils/nodemailerConfig';
 import randomstring from 'randomstring'
 import 'dotenv/config'
 const router = express.Router();
 
-router.use (bodyParser.urlencoded({ extended: true }));
-router.use (bodyParser.json());
+router.use (express.urlencoded({ extended: true }));
+router.use (express.json());
 
 
 const otp = randomstring.generate({
