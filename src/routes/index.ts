@@ -14,7 +14,7 @@ router.use (bodyParser.json());
 
 const otp = randomstring.generate({
     length: 6,
-    charset: 'string'
+    charset: ['numeric']
 });
 
 interface CustomRequest extends Request {
@@ -63,10 +63,7 @@ router.post('/signup',async (req, res) => {
                     console.log ("hash Error: ", err);
                     return;
                 }
-
-                console.log (hash);
-                console.log('Generated OTP:', otp);
-
+                
                 sendOTP(email, otp);
                 const user = new User({ email, password: hash });
                 await user.save();
