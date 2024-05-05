@@ -1,5 +1,35 @@
 ## Auth_API Documentation
 
+Register users with email/password, validate via OTP, store data, login with JWT, retrieve user info securely.
+
+## Folder Structure
+
+```
+.
+├── src --------- Source code root
+│   ├── controllers --------- Route specific application logic.
+│   │   ├──info.config.ts
+│   │   ├──login.config.ts
+│   │   ├──signup.config.ts
+│   │   ├──user.config.ts
+│   │   └──verify.config.ts
+│   ├── db --------- Reusable components related to database
+│   │   └──index.ts
+│   ├── routes --------- Reusable components for routing
+│   │   └──index.ts
+│   ├── schema --------- Reusable components related to data schema definitions
+│   │   └──user.model.ts
+│   ├── utils --------- Global utility functions
+│   │   ├── asyncHandler.ts ------ Utility functions for handling asynchronous operations.
+│   │   ├── nodemailerConfig.ts ------ Configuration settings for nodemailer
+│   │   └── verifyToken.ts --- Function for verifying tokens
+│   └index.ts
+├── .env
+├── package.json
+├── README.md
+└── tsconfig.json ----- TypeScript configuration file
+```
+
 ### 1. User Registration
 
 #### Endpoint:
