@@ -8,11 +8,11 @@ Register users with email/password, validate via OTP, store data, login with JWT
 .
 ├── src --------- Source code root
 │   ├── controllers --------- Route specific application logic.
-│   │   ├──info.config.ts
-│   │   ├──login.config.ts
-│   │   ├──signup.config.ts
-│   │   ├──user.config.ts
-│   │   └──verify.config.ts
+│   │   ├──info.controller.ts
+│   │   ├──login.controller.ts
+│   │   ├──signup.controller.ts
+│   │   ├──user.controller.ts
+│   │   └──verify.controller.ts
 │   ├── db --------- Reusable components related to database
 │   │   └──index.ts
 │   ├── routes --------- Reusable components for routing
