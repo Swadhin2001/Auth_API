@@ -20,7 +20,7 @@ transporter.verify ((err, success)=>{
 
 export function sendOTP(email:string, otp:string) {
     const mailOptions = {
-        from: 'swadhinpaul248@gmail.com', 
+        from: process.env.AUTH_EMAIL, 
         to: email,
         subject: 'OTP for Verification',
         text: `Your OTP for sign up is: ${otp}`
